@@ -16,10 +16,10 @@ export const LINKS = {
   // GitHub profile (provided)
   github: 'https://github.com/sadinsaif',
 
-  // Placeholders — swap these for real destinations
-  email: 'YOUR_EMAIL_HERE',
-  x: 'YOUR_X_PROFILE_HERE',
-  instagram: 'YOUR_INSTAGRAM_HERE',
+  // Contact (provided)
+  email: 'sadinsaif.ss.bd3@gmail.com',
+  x: 'https://x.com/sadinsaadbtc',
+  instagram: 'https://www.instagram.com/memetoonhubb',
 }
 
 /** True for any unset YOUR_* placeholder value. */
