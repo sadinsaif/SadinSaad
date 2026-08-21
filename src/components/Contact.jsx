@@ -1,7 +1,7 @@
 import SectionHeader from './SectionHeader'
 import Reveal from './Reveal'
 import { LINKS, isPlaceholder, PILLARS } from '../data/site'
-import { Mail, XLogo, Github, ArrowUpRight } from './icons'
+import { Mail, XLogo, Github, Discord, ArrowUpRight } from './icons'
 
 /* Contact actions. Email + X are placeholders until real links are provided —
    they render as non-navigating buttons so there are no broken links. */
@@ -25,6 +25,13 @@ const ACTIONS = [
     label: 'GitHub',
     icon: Github,
     href: LINKS.github,
+    external: true,
+  },
+  {
+    key: 'discord',
+    label: 'Discord',
+    icon: Discord,
+    href: isPlaceholder(LINKS.discord) ? null : LINKS.discord,
     external: true,
   },
 ]
