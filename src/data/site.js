@@ -20,6 +20,7 @@ export const LINKS = {
   email: 'sadinsaif.ss.bd3@gmail.com',
   x: 'https://x.com/sadinsaadbtc',
   instagram: 'https://www.instagram.com/memetoonhubb',
+  discord: 'https://discord.com/users/904955428759306301',
 }
 
 /** True for any unset YOUR_* placeholder value. */

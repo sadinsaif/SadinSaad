@@ -1,5 +1,5 @@
 import { LINKS, isPlaceholder } from '../data/site'
-import { XLogo, Github, Instagram } from './icons'
+import { XLogo, Github, Instagram, Discord } from './icons'
 
 const FOOTER_NAV = [
   { label: 'Home', href: '#home' },
@@ -17,6 +17,7 @@ const SOCIALS = [
     icon: Instagram,
     href: isPlaceholder(LINKS.instagram) ? null : LINKS.instagram,
   },
+  { key: 'discord', label: 'Discord', icon: Discord, href: isPlaceholder(LINKS.discord) ? null : LINKS.discord },
 ]
 
 function Social({ item }) {
