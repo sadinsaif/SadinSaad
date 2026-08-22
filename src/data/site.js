@@ -25,17 +25,17 @@ export const LINKS = {
 
 /**
  * Contact form delivery — uses FormSubmit (https://formsubmit.co); no account
- * or API key needed. Submissions are delivered to `endpoint` (the contact
- * email). On the FIRST submission FormSubmit emails that address a one-time
- * activation link — click it once and all later messages arrive in the inbox.
+ * or API key needed. `endpoint` is the FormSubmit alias hash for LINKS.email,
+ * so the raw address never appears in the form's network request — messages
+ * still land in the same inbox. (Get a new hash by submitting once with the
+ * plain email as `endpoint`; FormSubmit mails the alias in its activation link.)
  *
  * `enabled: false` → the form instead opens the visitor's own mail client
- * (mailto). To hide the raw address from the page source later, replace
- * `endpoint` with your FormSubmit alias hash (from the activation email).
+ * (mailto), which still uses the plain LINKS.email.
  */
 export const FORM = {
   enabled: true,
-  endpoint: LINKS.email,
+  endpoint: 'b66a312a2abbd3855e292e325ef850bf', // alias → sadinsaif.ss.bd3@gmail.com
 }
 
 /** True for any unset YOUR_* placeholder value. */
