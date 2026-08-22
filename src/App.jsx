@@ -10,6 +10,7 @@ import CreatorSection from './components/CreatorSection'
 import Philosophy from './components/Philosophy'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <Analytics />
     </>
   )
 }
