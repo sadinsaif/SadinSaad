@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { PILLARS } from '../data/site'
 import { pillarIcon, ArrowUpRight, ArrowDown } from './icons'
 
+// Static résumé page lives in public/ — base-aware for both deploy targets.
+const RESUME_URL = `${import.meta.env.BASE_URL}resume.html`
+
 /* Local load-in fade (staggered on mount) */
 function Fade({ show, delay = 0, className = '', as: T = 'div', ...rest }) {
   return (
@@ -181,6 +184,15 @@ export default function Hero() {
             </a>
             <a href="#contact" className="btn btn-ghost">
               Let&apos;s Connect
+            </a>
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              Résumé
+              <ArrowUpRight size={16} />
             </a>
           </Fade>
 

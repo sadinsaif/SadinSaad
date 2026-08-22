@@ -1,7 +1,10 @@
 import SectionHeader from './SectionHeader'
 import Reveal from './Reveal'
 import { LINKS, isPlaceholder, PILLARS } from '../data/site'
-import { Mail, XLogo, Github, Discord, ArrowUpRight } from './icons'
+import { Mail, XLogo, Github, Discord, FileText } from './icons'
+
+// Static résumé page lives in public/ — base-aware for both deploy targets.
+const RESUME_URL = `${import.meta.env.BASE_URL}resume.html`
 
 /* Contact actions. Email + X are placeholders until real links are provided —
    they render as non-navigating buttons so there are no broken links. */
@@ -32,6 +35,13 @@ const ACTIONS = [
     label: 'Discord',
     icon: Discord,
     href: isPlaceholder(LINKS.discord) ? null : LINKS.discord,
+    external: true,
+  },
+  {
+    key: 'resume',
+    label: 'Résumé',
+    icon: FileText,
+    href: RESUME_URL,
     external: true,
   },
 ]

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sadin Saad — Résumé</title>
+    <meta name="description" content="Résumé of Sadin Saad — AI Trainer, Content Creator, Web3 Enthusiast & Digital Builder." />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #050505;
+        --panel: rgba(255, 255, 255, 0.025);
+        --border: rgba(255, 255, 255, 0.09);
+        --brand: #10b981;
+        --brand-bright: #34d399;
+        --text: #ffffff;
+        --muted: #a1a1aa;
+        --dim: #71717a;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { -webkit-text-size-adjust: 100%; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Inter', system-ui, sans-serif;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      /* Toolbar (screen only) */
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 20px;
+        background: rgba(5, 5, 5, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .toolbar a.back {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+      .toolbar a.back:hover { color: var(--text); }
+      .btn-dl {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+        cursor: pointer;
+        border-radius: 999px;
+        background: var(--brand);
+        color: #04110c;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 9px 18px;
+        transition: background 0.2s, transform 0.1s;
+      }
+      .btn-dl:hover { background: var(--brand-bright); }
+      .btn-dl:active { transform: translateY(1px); }
+
+      /* Sheet */
+      .sheet {
+        max-width: 900px;
+        margin: 32px auto 64px;
+        padding: 44px 48px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+      }
+
+      .head { border-bottom: 1px solid var(--border); padding-bottom: 22px; }
+      .head h1 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.6rem;
+        letter-spacing: -0.03em;
+        margin: 0;
+      }
+      .head h1 .dot { color: var(--brand); }
+      .head .title {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 1.02rem;
+        font-weight: 500;
+      }
+      .contacts {
+        list-style: none;
+        margin: 18px 0 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.78rem;
+      }
+      .contacts a { color: var(--brand-bright); transition: color 0.2s; }
+      .contacts a:hover { color: var(--brand); text-decoration: underline; }
+
+      .grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1.55fr 1fr;
+        gap: 40px;
+      }
+
+      section { margin-bottom: 26px; }
+      section:last-child { margin-bottom: 0; }
+
+      h2 {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--brand);
+        margin: 0 0 14px;
+      }
+
+      p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+
+      .role { margin-bottom: 16px; }
+      .role:last-child { margin-bottom: 0; }
+      .role h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.02rem;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0 0 6px;
+      }
+      .role ul {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+      }
+      .role ul li {
+        color: var(--muted);
+        font-size: 0.86rem;
+        position: relative;
+        padding-left: 14px;
+      }
+      .role ul li::before {
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 0.55em;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--brand);
+      }
+
+      .project h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.08rem;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0 0 6px;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .project h3 .badge {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--brand);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 8px;
+      }
+      .project .links {
+        margin-top: 8px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.76rem;
+      }
+      .project .links a { color: var(--brand-bright); }
+      .project .links a:hover { text-decoration: underline; }
+
+      .skill-group { margin-bottom: 14px; }
+      .skill-group h4 {
+        margin: 0 0 6px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+      .chip {
+        font-size: 0.76rem;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 3px 9px;
+        background: rgba(16, 185, 129, 0.03);
+      }
+      .links-list { list-style: none; margin: 0; padding: 0; }
+      .links-list li { margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+      .links-list li span { color: var(--dim); }
+      .links-list a { color: var(--brand-bright); }
+      .links-list a:hover { text-decoration: underline; }
+
+      @media (max-width: 720px) {
+        .sheet { padding: 30px 22px; margin: 18px 12px 40px; }
+        .head h1 { font-size: 2rem; }
+        .grid { grid-template-columns: 1fr; gap: 28px; }
+      }
+
+      /* ---------- Print / PDF ---------- */
+      @media print {
+        @page { size: A4; margin: 14mm; }
+        html, body { background: #ffffff; color: #111827; }
+        .no-print { display: none !important; }
+        .sheet {
+          max-width: none;
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          background: #ffffff;
+        }
+        .head { border-color: #d1d5db; }
+        .head h1 { color: #0b0b0b; }
+        .head h1 .dot { color: #0f766e; }
+        .head .title { color: #374151; }
+        .contacts a, .contacts { color: #0f766e; }
+        h2 { color: #0f766e; }
+        p, .role ul li, .chip { color: #374151; }
+        .role h3, .project h3, .skill-group h4 { color: #0b0b0b; }
+        .role ul li::before { background: #0f766e; }
+        .chip { border-color: #d1d5db; background: transparent; }
+        .project h3 .badge { color: #0f766e; border-color: #d1d5db; }
+        .project .links a, .links-list a { color: #0f766e; }
+        .links-list li span { color: #6b7280; }
+        a { text-decoration: none; }
+        .grid { gap: 26px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar no-print">
+      <a class="back" href="./">&larr; Back to portfolio</a>
+      <button class="btn-dl" type="button" onclick="window.print()" aria-label="Download or print résumé as PDF">
+        &#8595; Download PDF
+      </button>
+    </div>
+
+    <main class="sheet">
+      <header class="head">
+        <h1>Sadin Saad<span class="dot">.</span></h1>
+        <p class="title">AI Trainer &middot; Content Creator &middot; Web3 Enthusiast &middot; Digital Builder</p>
+        <ul class="contacts">
+          <li><a href="mailto:sadinsaif.ss.bd3@gmail.com">sadinsaif.ss.bd3@gmail.com</a></li>
+          <li><a href="https://github.com/sadinsaif" target="_blank" rel="noopener">github.com/sadinsaif</a></li>
+          <li><a href="https://x.com/sadinsaadbtc" target="_blank" rel="noopener">x.com/sadinsaadbtc</a></li>
+          <li><a href="https://www.instagram.com/memetoonhubb" target="_blank" rel="noopener">@memetoonhubb</a></li>
+          <li><a href="https://discord.com/users/904955428759306301" target="_blank" rel="noopener">Discord</a></li>
+        </ul>
+      </header>
+
+      <div class="grid">
+        <div class="main">
+          <section>
+            <h2>Profile</h2>
+            <p>
+              AI Trainer, content creator, and digital builder working across artificial
+              intelligence, content creation, Web3, and web development. I explore AI-assisted
+              workflows, create digital and short-form content, research Web3 ecosystems, and
+              turn ideas into websites, products, and digital experiences.
+            </p>
+          </section>
+
+          <section>
+            <h2>What I Do</h2>
+            <div class="role">
+              <h3>AI Trainer</h3>
+              <ul>
+                <li>AI-related workflows</li>
+                <li>Quality-focused tasks</li>
+                <li>AI systems</li>
+                <li>Content / data evaluation</li>
+              </ul>
+            </div>
+            <div class="role">
+              <h3>Content Creator</h3>
+              <ul>
+                <li>Short-form content</li>
+                <li>Social media content</li>
+                <li>Creative concepts</li>
+                <li>Campaign content</li>
+              </ul>
+            </div>
+            <div class="role">
+              <h3>Web3 Content &amp; Research</h3>
+              <ul>
+                <li>Crypto projects</li>
+                <li>Web3 research</li>
+                <li>Educational content</li>
+                <li>Community-focused content</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="project">
+            <h2>Selected Project</h2>
+            <h3>PulseFy <span class="badge">Featured</span></h3>
+            <p>
+              A creator-focused digital platform designed around campaigns, content workflows,
+              submissions, reporting, moderation, and creator management.
+            </p>
+            <div class="links">
+              <a href="https://pulsefycorp.vercel.app/" target="_blank" rel="noopener">pulsefycorp.vercel.app</a>
+              &nbsp;&middot;&nbsp;
+              <a href="https://github.com/sadinsaif/Pulsefy" target="_blank" rel="noopener">github.com/sadinsaif/Pulsefy</a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side">
+          <section>
+            <h2>Skills</h2>
+            <div class="skill-group">
+              <h4>AI &amp; Technology</h4>
+              <div class="chips">
+                <span class="chip">AI Training</span>
+                <span class="chip">AI Tools</span>
+                <span class="chip">Prompt Engineering</span>
+                <span class="chip">AI-assisted Workflows</span>
+                <span class="chip">Generative AI</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h4>Content</h4>
+              <div class="chips">
+                <span class="chip">Content Creation</span>
+                <span class="chip">Short-form Content</span>
+                <span class="chip">Social Media Content</span>
+                <span class="chip">Content Writing</span>
+                <span class="chip">Video Content</span>
+                <span class="chip">Creative Strategy</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h4>Web3</h4>
+              <div class="chips">
+                <span class="chip">Web3 Research</span>
+                <span class="chip">Crypto Content</span>
+                <span class="chip">Blockchain Ecosystem Research</span>
+                <span class="chip">Community Content</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h4>Digital Building</h4>
+              <div class="chips">
+                <span class="chip">Website Development</span>
+                <span class="chip">UI/UX Concepts</span>
+                <span class="chip">GitHub</span>
+                <span class="chip">Vercel</span>
+                <span class="chip">AI-assisted Development</span>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Tools</h2>
+            <div class="chips">
+              <span class="chip">ChatGPT</span>
+              <span class="chip">Claude</span>
+              <span class="chip">Midjourney</span>
+              <span class="chip">DALL&middot;E</span>
+              <span class="chip">Sora</span>
+              <span class="chip">Runway</span>
+              <span class="chip">VEED</span>
+              <span class="chip">GitHub</span>
+              <span class="chip">Vercel</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Links</h2>
+            <ul class="links-list">
+              <li><span>Portfolio</span> <a href="https://sadin-saad.vercel.app/" target="_blank" rel="noopener">sadin-saad.vercel.app</a></li>
+              <li><span>GitHub</span> <a href="https://github.com/sadinsaif" target="_blank" rel="noopener">/sadinsaif</a></li>
+              <li><span>X</span> <a href="https://x.com/sadinsaadbtc" target="_blank" rel="noopener">/sadinsaadbtc</a></li>
+              <li><span>Instagram</span> <a href="https://www.instagram.com/memetoonhubb" target="_blank" rel="noopener">/memetoonhubb</a></li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

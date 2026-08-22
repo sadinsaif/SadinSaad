@@ -53,6 +53,13 @@ export const Close = (p) => (
   </Svg>
 )
 
+export const FileText = (p) => (
+  <Svg {...p}>
+    <path {...stroke} d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" />
+    <path {...stroke} d="M14 3v5h5M8.5 13h7M8.5 17h7" />
+  </Svg>
+)
+
 /* ---- Pillar glyphs ---- */
 
 export const Spark = (p) => (

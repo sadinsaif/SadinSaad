@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import { NAV_ITEMS } from '../data/site'
 import { Menu, Close, ArrowUpRight } from './icons'
 
+// Static résumé page lives in public/ — base-aware so it resolves on both
+// Vercel (root) and GitHub Pages (/SadinSaad/).
+const RESUME_URL = `${import.meta.env.BASE_URL}resume.html`
+
 function Wordmark({ onClick }) {
   return (
     <a
@@ -104,6 +108,14 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden rounded-full px-3.5 py-2 text-sm text-zinc-400 transition-colors hover:text-white lg:inline-flex"
+            >
+              Résumé
+            </a>
             <a href="#contact" className="btn btn-primary hidden h-10 px-5 !text-sm lg:inline-flex">
               Let&apos;s Talk
               <ArrowUpRight size={16} />
@@ -160,6 +172,16 @@ export default function Navbar() {
           </ul>
           <a href="#contact" onClick={close} className="btn btn-primary mt-10 w-full">
             Let&apos;s Talk
+            <ArrowUpRight size={16} />
+          </a>
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
+            className="btn btn-ghost mt-3 w-full"
+          >
+            View Résumé
             <ArrowUpRight size={16} />
           </a>
         </div>
