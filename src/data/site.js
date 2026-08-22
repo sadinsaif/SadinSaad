@@ -23,6 +23,18 @@ export const LINKS = {
   discord: 'https://discord.com/users/904955428759306301',
 }
 
+/**
+ * Contact form delivery.
+ * While `formspreeId` is the YOUR_* placeholder, the contact form falls back to
+ * opening the visitor's email client (mailto) pre-filled with their message —
+ * so it works immediately with no backend. To enable in-page submissions,
+ * create a free form at https://formspree.io and replace the value with its
+ * form ID (e.g. 'xariedan').
+ */
+export const FORM = {
+  formspreeId: 'YOUR_FORMSPREE_ID',
+}
+
 /** True for any unset YOUR_* placeholder value. */
 export const isPlaceholder = (value) =>
   typeof value === 'string' && value.startsWith('YOUR_')
