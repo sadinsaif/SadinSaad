@@ -91,7 +91,24 @@
         border-radius: 22px;
       }
 
-      .head { border-bottom: 1px solid var(--border); padding-bottom: 22px; }
+      .head {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+      .head .photo {
+        flex-shrink: 0;
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 3px solid rgba(16, 185, 129, 0.55);
+        box-shadow: 0 6px 26px rgba(16, 185, 129, 0.16);
+      }
+      .head .head-text { min-width: 0; }
       .head h1 {
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 700;
@@ -227,6 +244,8 @@
 
       @media (max-width: 720px) {
         .sheet { padding: 30px 22px; margin: 18px 12px 40px; }
+        .head { gap: 18px; }
+        .head .photo { width: 82px; height: 82px; }
         .head h1 { font-size: 2rem; }
         .grid { grid-template-columns: 1fr; gap: 28px; }
       }
@@ -234,8 +253,14 @@
       /* ---------- Print / PDF ---------- */
       @media print {
         @page { size: A4; margin: 14mm; }
-        html, body { background: #ffffff; color: #111827; }
+        html, body {
+          background: #ffffff;
+          color: #111827;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
         .no-print { display: none !important; }
+        .head .photo { border-color: #0f766e; box-shadow: none; }
         .sheet {
           max-width: none;
           margin: 0;
@@ -272,15 +297,18 @@
 
     <main class="sheet">
       <header class="head">
-        <h1>Sadin Saad<span class="dot">.</span></h1>
-        <p class="title">AI Trainer &middot; Content Creator &middot; Web3 Enthusiast &middot; Digital Builder</p>
-        <ul class="contacts">
-          <li><a href="mailto:sadinsaif.ss.bd3@gmail.com">sadinsaif.ss.bd3@gmail.com</a></li>
-          <li><a href="https://github.com/sadinsaif" target="_blank" rel="noopener">github.com/sadinsaif</a></li>
-          <li><a href="https://x.com/sadinsaadbtc" target="_blank" rel="noopener">x.com/sadinsaadbtc</a></li>
-          <li><a href="https://www.instagram.com/memetoonhubb" target="_blank" rel="noopener">@memetoonhubb</a></li>
-          <li><a href="https://discord.com/users/904955428759306301" target="_blank" rel="noopener">Discord</a></li>
-        </ul>
+        <img class="photo" src="profile.jpg" alt="Portrait of Sadin Saad" width="104" height="104" />
+        <div class="head-text">
+          <h1>Sadin Saad<span class="dot">.</span></h1>
+          <p class="title">AI Trainer &middot; Content Creator &middot; Web3 Enthusiast &middot; Digital Builder</p>
+          <ul class="contacts">
+            <li><a href="mailto:sadinsaif.ss.bd3@gmail.com">sadinsaif.ss.bd3@gmail.com</a></li>
+            <li><a href="https://github.com/sadinsaif" target="_blank" rel="noopener">github.com/sadinsaif</a></li>
+            <li><a href="https://x.com/sadinsaadbtc" target="_blank" rel="noopener">x.com/sadinsaadbtc</a></li>
+            <li><a href="https://www.instagram.com/memetoonhubb" target="_blank" rel="noopener">@memetoonhubb</a></li>
+            <li><a href="https://discord.com/users/904955428759306301" target="_blank" rel="noopener">Discord</a></li>
+          </ul>
+        </div>
       </header>
 
       <div class="grid">
