@@ -24,15 +24,18 @@ export const LINKS = {
 }
 
 /**
- * Contact form delivery.
- * While `formspreeId` is the YOUR_* placeholder, the contact form falls back to
- * opening the visitor's email client (mailto) pre-filled with their message —
- * so it works immediately with no backend. To enable in-page submissions,
- * create a free form at https://formspree.io and replace the value with its
- * form ID (e.g. 'xariedan').
+ * Contact form delivery — uses FormSubmit (https://formsubmit.co); no account
+ * or API key needed. Submissions are delivered to `endpoint` (the contact
+ * email). On the FIRST submission FormSubmit emails that address a one-time
+ * activation link — click it once and all later messages arrive in the inbox.
+ *
+ * `enabled: false` → the form instead opens the visitor's own mail client
+ * (mailto). To hide the raw address from the page source later, replace
+ * `endpoint` with your FormSubmit alias hash (from the activation email).
  */
 export const FORM = {
-  formspreeId: 'YOUR_FORMSPREE_ID',
+  enabled: true,
+  endpoint: LINKS.email,
 }
 
 /** True for any unset YOUR_* placeholder value. */

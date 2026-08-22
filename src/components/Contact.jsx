@@ -82,13 +82,14 @@ function Action({ action }) {
 
 function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [trap, setTrap] = useState('') // honeypot — bots fill it, humans don't
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
-  // When a real Formspree ID is set, submit in-page; otherwise fall back to
-  // opening the visitor's email client (works immediately, no backend).
-  const formspreeActive = !isPlaceholder(FORM.formspreeId)
+  // When enabled with a real endpoint, submit in-page via FormSubmit;
+  // otherwise fall back to the visitor's mail client (works with no backend).
+  const formActive = FORM.enabled && !isPlaceholder(FORM.endpoint)
   const emailReady = !isPlaceholder(LINKS.email)
-  const canSend = formspreeActive || emailReady
+  const canSend = formActive || emailReady
 
   const update = (e) => {
     const { name, value } = e.target
@@ -100,8 +101,14 @@ function ContactForm() {
     e.preventDefault()
     if (status === 'sending' || !canSend) return
 
+    // Honeypot tripped — silently accept without sending.
+    if (trap) {
+      setStatus('sent')
+      return
+    }
+
     // Fallback — compose an email in the visitor's mail client.
-    if (!formspreeActive) {
+    if (!formActive) {
       const subject = encodeURIComponent(
         `Portfolio message from ${form.name || 'someone'}`
       )
@@ -113,13 +120,20 @@ function ContactForm() {
       return
     }
 
-    // Formspree submission
+    // FormSubmit AJAX submission (no account/API key required)
     try {
       setStatus('sending')
-      const res = await fetch(`https://formspree.io/f/${FORM.formspreeId}`, {
+      const res = await fetch(`https://formsubmit.co/ajax/${FORM.endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Portfolio message from ${form.name || 'someone'}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
       })
       if (!res.ok) throw new Error('Request failed')
       setForm({ name: '', email: '', message: '' })
@@ -133,7 +147,7 @@ function ContactForm() {
     status === 'sending'
       ? 'Sending…'
       : status === 'sent'
-        ? formspreeActive
+        ? formActive
           ? 'Thanks — your message has been sent.'
           : 'Opening your email app…'
         : status === 'error'
@@ -221,6 +235,19 @@ function ContactForm() {
             />
           </div>
         </div>
+
+        {/* Honeypot — hidden from humans; bots that fill it are dropped
+            (client-side here + server-side by FormSubmit's own _honey field). */}
+        <input
+          type="text"
+          name="_honey"
+          tabIndex={-1}
+          autoComplete="off"
+          value={trap}
+          onChange={(e) => setTrap(e.target.value)}
+          className="hidden"
+          aria-hidden="true"
+        />
 
         <button
           type="submit"
