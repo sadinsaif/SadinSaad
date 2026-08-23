@@ -13,6 +13,9 @@ export const LINKS = {
   pulsefyLive: 'https://pulsefycorp.vercel.app/',
   pulsefyGithub: 'https://github.com/sadinsaif/Pulsefy',
 
+  // Testnet token project — PULSE (PLSX) on Solana Devnet
+  pulseLive: 'https://pulse-token-six.vercel.app/',
+
   // GitHub profile (provided)
   github: 'https://github.com/sadinsaif',
 
@@ -158,13 +161,14 @@ export const PROJECTS = [
     tags: ['AI', 'Content', 'Creative', 'Experiments'],
   },
   {
-    id: 'web3',
+    id: 'pulse',
     index: '03',
-    title: 'Web3 Exploration',
+    title: 'PULSE (PLSX)',
     featured: false,
     description:
-      'Exploring Web3 ecosystems, crypto projects, digital communities, and emerging blockchain technologies through research and content.',
-    tags: ['Web3', 'Research', 'Crypto', 'Community'],
+      'A Solana SPL token on Devnet — a non-custodial site that reads your on-chain PLSX balance (never moving or holding it), with a fixed 1,000,000,000 supply, Metaplex on-chain metadata, tokenomics, and a public roadmap. Testnet / beta, no monetary value.',
+    tags: ['Solana', 'SPL Token', 'Web3', 'Devnet'],
+    live: LINKS.pulseLive,
   },
 ]
 

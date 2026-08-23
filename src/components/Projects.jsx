@@ -195,6 +195,18 @@ function SecondaryCard({ project, delay }) {
             </li>
           ))}
         </ul>
+
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex w-fit items-center gap-1.5 font-mono text-xs text-brand transition-opacity hover:opacity-80"
+          >
+            Live Project
+            <ArrowUpRight size={14} />
+          </a>
+        )}
       </article>
     </Reveal>
   )
