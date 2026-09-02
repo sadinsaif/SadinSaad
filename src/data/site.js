@@ -16,6 +16,9 @@ export const LINKS = {
   // Testnet token project — PULSE (PLSX) on Solana Devnet
   pulseLive: 'https://pulse-token-six.vercel.app/',
 
+  // Web design build — LUMÉA Aesthetics (med-spa concept site)
+  lumeaLive: 'https://lumea-med-spa.vercel.app/',
+
   // GitHub profile (provided)
   github: 'https://github.com/sadinsaif',
 
@@ -152,19 +155,22 @@ export const PROJECTS = [
     github: LINKS.pulsefyGithub,
   },
   {
-    id: 'ai-content',
+    id: 'lumea',
     index: '02',
-    title: 'AI & Content Experiments',
+    title: 'LUMÉA Aesthetics',
     featured: false,
+    icon: 'BUILD',
     description:
-      'Creative experiments combining artificial intelligence, digital content, visual tools, and emerging workflows.',
-    tags: ['AI', 'Content', 'Creative', 'Experiments'],
+      'A premium medical-aesthetics (med-spa) website — a Next.js front-end build with a full luxury-wellness marketing site: treatments, a consultation-booking flow, before & after, team, and FAQ. A design concept with demonstration content.',
+    tags: ['Web Design', 'Next.js', 'UI/UX', 'Concept'],
+    live: LINKS.lumeaLive,
   },
   {
     id: 'pulse',
     index: '03',
     title: 'PULSE (PLSX)',
     featured: false,
+    icon: 'WEB3',
     description:
       'A Solana SPL token on Devnet — a non-custodial site that reads your on-chain PLSX balance (never moving or holding it), with a fixed 1,000,000,000 supply, Metaplex on-chain metadata, tokenomics, and a public roadmap. Testnet / beta, no monetary value.',
     tags: ['Solana', 'SPL Token', 'Web3', 'Devnet'],

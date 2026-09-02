@@ -84,8 +84,8 @@ function PlatformVisual() {
 }
 
 /* Compact geometric motif for the non-featured cards. */
-function MotifVisual({ id }) {
-  const Icon = pillarIcon[id === 'ai-content' ? 'AI' : 'WEB3']
+function MotifVisual({ icon }) {
+  const Icon = pillarIcon[icon] || pillarIcon.BUILD
   return (
     <div className="relative flex h-32 items-center justify-center overflow-hidden rounded-xl border border-white/8 bg-white/[0.015]">
       <div className="absolute inset-0 fine-grid opacity-30" aria-hidden="true" />
@@ -178,7 +178,7 @@ function SecondaryCard({ project, delay }) {
         </div>
 
         <div className="mt-5">
-          <MotifVisual id={project.id} />
+          <MotifVisual icon={project.icon} />
         </div>
 
         <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight text-white">
